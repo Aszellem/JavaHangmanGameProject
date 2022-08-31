@@ -1,3 +1,4 @@
+import java.security.Guard;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -72,10 +73,19 @@ public class Hangman {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        String word = randomWord();
         System.out.print("Guess: ");
-        char guess = scan.next().charAt(0);
-        System.out.println(guess);
-        
+        char guess = scan.nextLine().charAt(0);
+        char[] placeholders = new char[word.length()];
+        for (int i = 0; i < placeholders.length; i++) {
+            placeholders[i] = '_';
+        }
+
+        int misses = 0;
+
+        while (misses < 6) {
+
+        }
 
     }
 
@@ -84,7 +94,7 @@ public class Hangman {
      * 
      * @return words (String [])
      * 
-     * Inside function: return random workds from String[] words array.
+     *         Inside function: return random workds from String[] words array.
      */
 
     public static String randomWord() {
@@ -93,5 +103,25 @@ public class Hangman {
         return words[random];
     }
 
+    /**
+     * Function name: checkGuess()
+     * 
+     * @param word  (String)
+     * @param guess (char)
+     * @return boolean
+     * 
+     *         Inside function: return true if the user guessed a letter from the
+     *         word correctly.
+     * 
+     */
+
+    public static boolean checkGuess(String word, char guess) {
+        for (int i = 0; i < words.length; i++) {
+            if (word.charAt(i) == guess) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
