@@ -124,4 +124,39 @@ public class Hangman {
         return false;
     }
 
+    /**
+     * Function name: updatePlaceholders()
+     * 
+     * @param placeholders (char[])
+     * @param guess        (char)
+     * @param word         (String)
+     * 
+     *                     Inside the function: updates the placeholders when the
+     *                     user makes a correct guess.
+     */
+
+    public static void updatePlaceholders(char[] placeholders, char guess, String word) {
+        for (int j = 0; j < word.length(); j++) {
+            if (word.charAt(j) == guess) {
+                placeholders[j] = guess;
+            }
+        }
+    }
+
+    /**
+     * Function name: printPlaceholders()
+     * 
+     * @param placeholders (char[])
+     * 
+     *                     Inside the function: prints the placeholders.
+     */
+
+    public static void printPlaceholders(char[] placeholders) {
+        for (int i = 0; i < placeholders.length; i++) {
+            System.out.println(placeholders);
+        }
+    }
+
+    
+
 }
