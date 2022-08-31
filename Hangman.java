@@ -1,4 +1,5 @@
 import java.security.Guard;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -99,7 +100,27 @@ public class Hangman {
             char guess = scan.nextLine().charAt(0);
             System.out.println("\n");
 
-            
+            if(checkGuess(word, guess)){
+                updatePlaceholders(placeholders, guess, word);
+            }
+            else{
+                missedGuesses[misses] = guess;
+                misses++;
+            }
+
+            if(Arrays.equals(placeholders, word.toCharArray())){
+                System.out.println(gallows[misses]);
+                System.out.println("\nWord: ");
+                printPlaceholders(placeholders);
+                System.out.println("\nGOOD WORK!");
+                break;
+            }
+
+            if(misses == 6){
+                System.out.println(gallows[6]);
+                System.out.println("\nRIP: ");
+                System.out.println("\nThe word was: '" + word + "'");
+            }
         }
 
 
