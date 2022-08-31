@@ -83,6 +83,8 @@ public class Hangman {
 
         int misses = 0;
 
+        char[] missedGuesses = new char[6];
+
         while (misses < 6) {
 
         }
@@ -157,6 +159,18 @@ public class Hangman {
         }
     }
 
-    
+    /**
+     * Function name: printMissedGuesses()
+     * 
+     * @param misses (char[])
+     * 
+     *               Inside the function: prints guesses that the user missed.
+     */
+
+    public static void printMissedGuesses(char[] misses) {
+        for (int i = 0; i < misses.length; i++) {
+            System.out.println(misses[i]);
+        }
+    }
 
 }
