@@ -122,8 +122,6 @@ public class Hangman {
                 System.out.println("\nThe word was: '" + word + "'");
             }
         }
-
-
         scan.close();
     }
 
