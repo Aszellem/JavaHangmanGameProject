@@ -74,8 +74,7 @@ public class Hangman {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String word = randomWord();
-        System.out.print("Guess: ");
-        char guess = scan.nextLine().charAt(0);
+
         char[] placeholders = new char[word.length()];
         for (int i = 0; i < placeholders.length; i++) {
             placeholders[i] = '_';
@@ -86,9 +85,25 @@ public class Hangman {
         char[] missedGuesses = new char[6];
 
         while (misses < 6) {
+            System.out.print(gallows[misses]);
 
+            System.out.println("Word: ");
+            printPlaceholders(placeholders);
+            System.out.println("\n");
+
+            System.out.println("Misses: ");
+            printMissedGuesses(missedGuesses);
+            System.out.println("\n");
+
+            System.out.println("Guess: ");
+            char guess = scan.nextLine().charAt(0);
+            System.out.println("\n");
+
+            
         }
 
+
+        scan.close();
     }
 
     /**
